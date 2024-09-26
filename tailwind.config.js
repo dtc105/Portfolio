@@ -5,7 +5,16 @@ export default {
 		"./src/**/*.{js,ts,jsx,tsx}"
 	],
 	theme: {
-		extend: {},
+		extend: {
+			height: {
+				"cap": "1cap"
+			},
+			spacing: {
+				"4/5": "80%",
+				"5/6": "83.333333%",
+			},
+			
+		},
 	},
 	plugins: [],
 }
