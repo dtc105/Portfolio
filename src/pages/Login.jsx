@@ -11,80 +11,76 @@ function Login() {
     }
     
     return (
+        <>
+        <div className="absolute border border-black top-1/2 -translate-y-1/2 w-full"></div>
         <div 
-            id="loginScreen" 
-            className="w-full h-full grid place-content-center"
-        >
-            <div 
-                id="loginContent"
-                className="flex flex-col gap-16"
+            id="loginContainer"
+            className="h-full grid grid-rows-login justify-center"
             >
-                <img 
-                    src="avatar.svg" 
-                    alt="avatar icon" 
-                    className="h-36 aspect-square" 
+            <img 
+                src="avatar.svg" 
+                alt="avatar icon" 
+                className="h-36 self-end justify-self-center" 
                 />
-                <form 
-                    action="POST"
-                    className="relative flex flex-col gap-8 justify-center items-center text-xl"
+            <form 
+                action="POST"
+                className="w-72 self-start justify-self-center row-start-3 flex flex-col justify-center items-center text-xl gap-3"
                 >
-                    <div id="usernameInput" className="w-fit">
-                        {
-                            !username &&
-                            <p 
-                                className="absolute text-right text-sm w-full p-5 text-slate-400 cursor-text select-none"
-                                onClick={() => document.getElementById("username").focus()}
-                            >
-                                (Optional)
-                            </p>
-                        }
-                        <input 
-                            type="text" 
-                            name="username"
-                            id="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="border p-4 placeholder:text-slate-400 rounded-full"
-                            placeholder="Username"
+                <div id="usernameInput">
+                    {
+                        !username &&
+                        <p 
+                        className="absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text"
+                        onClick={() => document.getElementById("username").focus()}
+                        >
+                            (Optional)
+                        </p>
+                    }
+                    <input 
+                        type="text" 
+                        name="username"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full placeholder:text-slate-400"
+                        placeholder="Username"
                         />
-                    </div>
+                </div>
 
-                    <div id="passwordInput">
-                        {
-                            !password &&
-                            <p 
-                                className="absolute text-right text-sm w-full p-5 text-slate-400 cursor-text select-none"
-                                onClick={() => document.getElementById("password").focus()}
-                            >
-                                (Optional)
-                            </p>
-                        }
-                        <input 
-                            type="password" 
-                            name="password"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="border p-4 placeholder:text-slate-400 rounded-full"
-                            placeholder="Password"
+                <div id="passwordInput">
+                    {
+                        !password &&
+                        <p 
+                        className="absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text"
+                        onClick={() => document.getElementById("password").focus()}
+                        >
+                            (Optional)
+                        </p>
+                    }
+                    <input 
+                        type="password" 
+                        name="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full placeholder:text-slate-400"
+                        placeholder="Password"
                         />
-                    </div>
-                    <button
-                        onClick={(e) => login(e)}
-                        className="border p-4 rounded-full w-8/12"
+                </div>
+                <button
+                    onClick={(e) => login(e)}
+                    className="w-4/5 h-15 px-7.5 py-1.5 border rounded-full grid grid-cols-centered items-center"
                     >
-                            <span className="flex justify-center items-center">
-                                Login
-                            </span>
-                            <img 
-                                src="right-arrow.svg" 
-                                alt="right arrow" 
-                                className="absolute h-5 left-4/5 bottom-0 -translate-x-1/2 -translate-y-1/2 my-3"
-                            />
-                    </button>
-                </form>
-            </div>
+                        <span className="col-start-2">Login</span>
+                        <img 
+                            src="right-arrow.svg" 
+                            alt="right arrow" 
+                            className="col-start-3 justify-self-end h-7.5"
+                        />
+                </button>
+            </form>
         </div>
+        </>
     );
 }
 
