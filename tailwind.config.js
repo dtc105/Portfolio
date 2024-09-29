@@ -11,6 +11,10 @@ export default {
 				"7.5": "1.875rem",
 				"15": "3.75rem",
 			},
+			margin: {
+				"4.5": "1.125rem",
+				"7.5": "1.875rem"
+			},
 			padding: {
 				"4.5": "1.125rem",
 				"7.5": "1.875rem"
@@ -20,7 +24,7 @@ export default {
 				"5/6": "83.333333%",
 			},
 			gridTemplateRows: {
-				"login": "1fr 1.5rem 1fr"
+				"login": "1fr 2rem 1fr"
 			},
 			gridTemplateColumns: {
 				"centered": "1fr auto 1fr"

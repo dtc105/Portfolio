@@ -4,68 +4,79 @@ function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [focus, setFocus] = useState("");
     
     function login(e) {
-        // e.preventDefault();
-        localStorage.setItem("username", username);
+        e.preventDefault();
+        if (username) {
+            localStorage.setItem("username", username);
+        } else {
+            localStorage.setItem("username", "Guest");
+        }
+        window.location.reload();
     }
     
     return (
-        <>
-        <div className="absolute border border-black top-1/2 -translate-y-1/2 w-full"></div>
         <div 
             id="loginContainer"
             className="h-full grid grid-rows-login justify-center"
-            >
+        >
             <img 
                 src="avatar.svg" 
                 alt="avatar icon" 
                 className="h-36 self-end justify-self-center" 
                 />
             <form 
-                action="POST"
-                className="w-72 self-start justify-self-center row-start-3 flex flex-col justify-center items-center text-xl gap-3"
+                className="w-72 self-start justify-self-center row-start-3 flex flex-col justify-center items-center text-xl gap-4"
                 >
                 <div id="usernameInput">
-                    {
-                        !username &&
-                        <p 
-                        className="absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text"
+                    <p
+                        className={`absolute mx-7.5 text-slate-400 cursor-text transition-all bg-white ${focus === "username" || username ? "px-1 -my-4" : "my-4"}`}
                         onClick={() => document.getElementById("username").focus()}
-                        >
-                            (Optional)
-                        </p>
-                    }
+                    >
+                        Username
+                    </p>
+                    <p 
+                        className={`absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity ${(focus === "username" || username) && "opacity-0 pointer-events-none"}`}
+                        onClick={() => document.getElementById("username").focus()}
+                    >
+                        (Optional)
+                    </p>
                     <input 
                         type="text" 
                         name="username"
                         id="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        className="w-full h-15 px-7.5 py-1.5 border rounded-full placeholder:text-slate-400"
-                        placeholder="Username"
-                        />
+                        onFocus={() => setFocus("username")}
+                        onBlur={() => setFocus("")}
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full"
+                    />
                 </div>
 
                 <div id="passwordInput">
-                    {
-                        !password &&
-                        <p 
-                        className="absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text"
+                    <p
+                        className={`absolute mx-7.5 text-slate-400 cursor-text transition-all bg-white ${focus === "password" || password ? "px-1 -my-4" : "my-4"}`}
                         onClick={() => document.getElementById("password").focus()}
-                        >
-                            (Optional)
-                        </p>
-                    }
+                    >
+                        Password
+                    </p>
+                    <p 
+                        className={`absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity ${(focus === "password" || password) && "opacity-0 pointer-events-none"}`}
+                        onClick={() => document.getElementById("password").focus()}
+                    >
+                        (Optional)
+                    </p>
                     <input 
                         type="password" 
                         name="password"
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full h-15 px-7.5 py-1.5 border rounded-full placeholder:text-slate-400"
-                        placeholder="Password"
-                        />
+                        onFocus={() => setFocus("password")}
+                        onBlur={() => setFocus("")}
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full"
+                    />
                 </div>
                 <button
                     onClick={(e) => login(e)}
@@ -80,7 +91,6 @@ function Login() {
                 </button>
             </form>
         </div>
-        </>
     );
 }
 
