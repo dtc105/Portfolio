@@ -19,7 +19,7 @@ function Login() {
     return (
         <div 
             id="loginContainer"
-            className="h-full grid grid-rows-login justify-center"
+            className="h-full grid grid-rows-login justify-center bg-gradient-to-b from-blue to-green"
         >
             <img 
                 src="avatar.svg" 
@@ -28,16 +28,22 @@ function Login() {
                 />
             <form 
                 className="w-72 self-start justify-self-center row-start-3 flex flex-col justify-center items-center text-xl gap-4"
-                >
+            >
                 <div id="usernameInput">
                     <p
-                        className={`absolute mx-7.5 text-slate-400 cursor-text transition-all bg-white ${focus === "username" || username ? "px-1 -my-4" : "my-4"}`}
+                        className={
+                            `absolute mx-7.5 text-slate-400 cursor-text transition-all
+                            ${focus === "username" || username ? "px-1 -my-4" : "my-4"}`
+                        }
                         onClick={() => document.getElementById("username").focus()}
                     >
                         Username
                     </p>
                     <p 
-                        className={`absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity ${(focus === "username" || username) && "opacity-0 pointer-events-none"}`}
+                        className={
+                            `absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity 
+                            ${(focus === "username" || username) && "opacity-0 pointer-events-none"}`
+                        }
                         onClick={() => document.getElementById("username").focus()}
                     >
                         (Optional)
@@ -50,19 +56,25 @@ function Login() {
                         onChange={(e) => setUsername(e.target.value)}
                         onFocus={() => setFocus("username")}
                         onBlur={() => setFocus("")}
-                        className="w-full h-15 px-7.5 py-1.5 border rounded-full"
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full bg-transparent outline-none"
                     />
                 </div>
 
                 <div id="passwordInput">
                     <p
-                        className={`absolute mx-7.5 text-slate-400 cursor-text transition-all bg-white ${focus === "password" || password ? "px-1 -my-4" : "my-4"}`}
+                        className={
+                            `absolute mx-7.5 text-slate-400 cursor-text transition-all 
+                            ${focus === "password" || password ? "px-1 -my-4" : "my-4"}`
+                        }
                         onClick={() => document.getElementById("password").focus()}
                     >
                         Password
                     </p>
                     <p 
-                        className={`absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity ${(focus === "password" || password) && "opacity-0 pointer-events-none"}`}
+                        className={
+                            `absolute w-72 text-right px-7.5 py-4.5 text-base text-slate-400 cursor-text transition-opacity 
+                            ${(focus === "password" || password) && "opacity-0 pointer-events-none"}`
+                        }
                         onClick={() => document.getElementById("password").focus()}
                     >
                         (Optional)
@@ -75,7 +87,7 @@ function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                         onFocus={() => setFocus("password")}
                         onBlur={() => setFocus("")}
-                        className="w-full h-15 px-7.5 py-1.5 border rounded-full"
+                        className="w-full h-15 px-7.5 py-1.5 border rounded-full bg-transparent outline-none"
                     />
                 </div>
                 <button

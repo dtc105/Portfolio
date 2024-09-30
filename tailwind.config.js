@@ -5,6 +5,16 @@ export default {
 		"./src/**/*.{js,ts,jsx,tsx}"
 	],
 	theme: {
+		colors: {
+			"blue": "#A6CFFE",
+			"gray": "#4C5F6B",
+			"dark-gray": "#2B3D41",
+			"green": "#EFF2C0",
+			"brown": "#BEA57D",
+			"transparent": "#0000",
+			"white": "#FFF",
+			"black": "#000"
+		},
 		extend: {
 			height: {
 				"cap": "1cap",
