@@ -38,8 +38,10 @@ export default {
 			},
 			gridTemplateColumns: {
 				"centered": "1fr auto 1fr"
+			},
+			borderRadius: {
+				"circle": "50%"
 			}
-			
 		},
 	},
 	plugins: [],
