@@ -6,13 +6,14 @@ export default {
 	],
 	theme: {
 		colors: {
-			"blue": "#A6CFFE",
-			"gray": "#4C5F6B",
+			"blue": "#94cad8",
+			"gray": "#4c5f6b",
 			"dark-gray": "#2B3D41",
 			"green": "#EFF2C0",
 			"brown": "#BEA57D",
 			"transparent": "#0000",
 			"white": "#FFF",
+			"1": "#f0f0f0",
 			"black": "#000"
 		},
 		extend: {
